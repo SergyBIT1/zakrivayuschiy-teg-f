@@ -1,8 +1,7 @@
 /* Здесь вы напишете основную часть стилей страницы.
 
-Будьте внимательны! Для корректной работы скриптов на этом сайте нужно, чтобы в HTML некоторые классы были названы особым образом:
-✦ theme-dark — класс тёмной темы
-✦ theme-light — класс светлой темы
+Будьте внимательны! Для корректной работы скриптов на этом сайте нужно, 
+чтобы в HTML некоторые классы были названы особым образом:
 ✦ like-icon — для svg-иконки анимированного сердца
 ✦ card__like-button — для кнопки Like рядом с иконкой
 ✦ card__icon-button — для кнопки, оборачивающей иконку
@@ -17,4 +16,151 @@
 .page {
   min-inline-size: 320px;
   min-block-size: 100dvb;
+  background-color: var(--background-color);
+}
+
+body {
+  font-family: var(--font-regular);
+} 
+
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-image: url(../svg/background.svg);
+  max-width: 700px;
+  border: 2px solid var(--border-color);
+  color: var(--font-color);
+  font-family: var(--font-pixel_style);
+}
+
+.header__title {
+  font-size: 23px;
+  font-weight: 400;
+  line-height: 23px;
+  text-transform: uppercase;
+  margin-bottom: 25px;
+}
+
+.theme-menu__list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  
+}
+
+.theme-menu__button {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 14px;
+  text-transform: uppercase;
+}
+
+.theme-menu__item:last-child {
+  margin-bottom: 25px;
+}
+
+.header__text {
+  font-family: var(--font-pixel_style);
+  font-size: 65px;
+  font-weight: 400;
+  line-height: 65px;
+  margin-bottom: 20px;
+}
+
+.section_block {
+  max-width: 696px;
+  margin-bottom: 50px;
+  border: 2px solid var(--border-color);
+  color: var(--font-color);
+}
+
+.section_block:last-child {
+  margin-bottom: 0;
+}
+
+.block_text_title {
+  align-self: self-start;
+  margin-left: 10px;
+}
+
+.block_text {
+  margin-left: 25px;
+  margin-right: 25px;
+  margin-top: 25px;
+}
+
+.block_button {
+  margin-bottom: 25px;
+  margin-right: 25px;
+}
+
+.picture {
+  display: block;
+  object-position: center;
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.block_button {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.card__like-button {
+  font-family: var(--font-pixel_style);
+  padding: 9px 17px;
+  width: 130px;
+  height: 38px;
+  background: var(--background-color);
+  border: 2px solid var(--border-color);
+}
+
+.card__icon-button {
+  font-family: var(--font-pixel_style);
+  height: 38px;
+  background: var(--background-color);
+  border: none;
+  
+}
+
+
+
+
+
+.contour {
+  fill: var(--border-color);
+}
+
+.main-body {
+  fill: var(--background-color);
+}
+
+.main-body:hover   {
+  fill: var(--border-color);
+}
+
+
+
+
+.like-icon .heart .main-body:active {
+  cursor: pointer;
+  
+  animation: is-liked 1s infinite linear reverse;
+}
+
+@keyframes is-liked {
+  from {
+    fill: #000000;
+  }
+  to {
+    fill: #FF0000;
+  }
 }

@@ -1,0 +1,15 @@
+{
+  "name": "zakrivayuschiy-teg-f",
+  "version": "1.0.0",
+  "description": "***HTML CSS JS***",
+  "main": "index.js",
+  "scripts": {
+    "test": "test",
+    "check": "prettier --check './**/*.{html,css,js}'",
+    "format": "prettier --write './**/*.{html,css,js}'",
+    "lint": "stylelint '**/*.css'",
+    "lintfix": "stylelint '**/*.css' --fix"
+  },
+  "author": "",
+  "license": "ISC"
+}
