@@ -3,6 +3,8 @@
   --border-color: #00cc14;
   --font-color: #00cc14;
   --background-color: #1A1A1A;
+  --background-color-inverse: #00cc14;
+  --text-color-inverse: #00cc14;
 
 }
 
@@ -12,6 +14,7 @@
     --border-color: #00cc14;
     --font-color: #00cc14;
     --background-color: #1A1A1A;
+    --text-color-inverse: #00cc14;
     }
   }
 
@@ -20,6 +23,7 @@
   --font-color: #000000;
   --border-color: #000000;
   --background-color: #FFFFFF;
+  --text-color-inverse: #FFF;
 }
 
 @media (prefers-color-scheme: light) {
@@ -28,5 +32,6 @@
     --font-color: #000000;
     --border-color: #000000;
     --background-color: #FFFFFF;
+    --text-color-inverse: #000000;
     }
   }

@@ -29,16 +29,24 @@ body {
   align-items: center;
 }
 
+/* .cover {
+   background-image: url(../svg/background.svg);
+   background-size: cover;
+   background: repeating-linear-gradient( #e7e7e7, #1a1a1a);
+} */
+
 .header {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-image: url(../svg/background.svg);
+  /* background-image: url(../svg/background.svg); */
   max-width: 700px;
   border: 2px solid var(--border-color);
   color: var(--font-color);
   font-family: var(--font-pixel_style);
 }
+
+
 
 .header__title {
   font-size: 23px;
@@ -60,6 +68,8 @@ body {
   font-weight: 400;
   line-height: 14px;
   text-transform: uppercase;
+  background-color: var(--background-color);
+  border: none;
 }
 
 .theme-menu__item:last-child {
@@ -114,14 +124,7 @@ body {
   justify-content: flex-end;
 }
 
-.card__like-button {
-  font-family: var(--font-pixel_style);
-  padding: 9px 17px;
-  width: 130px;
-  height: 38px;
-  background: var(--background-color);
-  border: 2px solid var(--border-color);
-}
+
 
 .card__icon-button {
   font-family: var(--font-pixel_style);
@@ -131,36 +134,184 @@ body {
   
 }
 
-
-
-
-
-.contour {
-  fill: var(--border-color);
+.sparks {
+  opacity: 0;
 }
+    /* -------  hover  --------  */
 
-.main-body {
-  fill: var(--background-color);
-}
-
-.main-body:hover   {
-  fill: var(--border-color);
-}
-
-
-
-
-.like-icon .heart .main-body:active {
+.like-icon:hover {
   cursor: pointer;
-  
-  animation: is-liked 1s infinite linear reverse;
+}
+
+.like-icon .core {
+  fill: var(--background-color);
+  transition: fill 0.3s ease-out 0.05s;
+}
+
+.like-icon .main-body {
+  fill: var(--background-color);
+  transition: fill 0.3s ease-in-out 0.03s;
+}
+
+.like-icon:hover .core {
+  fill: var(--border-color);
+}
+
+.like-icon:hover .main-body {
+  fill: var(--border-color);
+}
+   /* -------  active  --------  */
+
+.like-icon:active .core {
+  animation: is-liked 0.3s;
+}
+
+.like-icon:active .main-body {
+  animation: is-liked 0.3s;
+}
+
+.like-icon:active .contour {
+  animation: is-liked 0.3s ease 0.06s;
 }
 
 @keyframes is-liked {
   from {
-    fill: #000000;
+    fill: var(--font-color);
   }
   to {
-    fill: #FF0000;
+    fill: var(--like-color);
   }
+}
+ /* -------  big red heart  --------  */
+
+ .like-icon.is-liked .contour {
+  animation: big-heart 1.5s;
+  transform-origin: center;
+}
+
+.like-icon.is-liked .main-body {
+  animation: big-heart 1.5s;
+  transform-origin: center;
+}
+
+.like-icon.is-liked .core {
+  animation: big-heart 1.5s;
+  transform-origin: center;
+}
+
+@keyframes big-heart {
+  from {
+    scale: 1;
+  }
+  to {
+    scale: 1.15;
+    fill: var(--like-color);
+  }
+}
+  /* -------  sparks  --------  */
+
+.like-icon.is-liked .sparks {
+  animation: firework 1s;
+}
+
+@keyframes firework {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 100%;
+  }
+}
+
+
+
+
+/* ---- правая кнопка like button  --------  */
+
+.card__like-button:focus {
+  box-shadow: 2px 2px;
+  outline: none;
+}
+
+.card__like-button {
+  position: relative;
+  font-family: var(--font-pixel_style);
+  padding: 9px 17px;
+  width: 130px;
+  height: 38px;
+  background: var(--background-color);
+  border: 2px solid var(--border-color);
+  z-index: 1;
+}
+
+.button__text {
+  color: var(--text-color-inverse);
+  mix-blend-mode: difference;
+}
+
+.card__like-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 34px;
+  background: linear-gradient(to right, var(--border-color), var(--border-color));
+  transition: all 1s;
+  z-index: 0;
+  
+}
+
+.card__like-button:hover::before {
+  width: 100%;
+}
+
+/* ---------  save button ----------  */
+
+
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* max-width: 700px; */
+  font-family: var(--font-pixel_style);
+  color: var(--font-color);
+}
+
+.floppy {
+  width: 21px;
+  height: 21px;
+  color: var(--text-color-inverse);
+  mix-blend-mode: difference;
+}
+
+.save-button {
+  width: 335px;
+  height: 51px;
+  margin-bottom: 103px;
+  font-size: 14px;
+  position: relative;
+  font-family: var(--font-pixel_style);
+  background: var(--background-color);
+  border: 2px solid var(--border-color);
+  z-index: 1;
+}
+
+/* --------- hover save button ----------  */
+
+.save-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 48px;
+  background: linear-gradient(to right, var(--border-color), var(--border-color));
+  transition: all 1s;
+  z-index: 0;
+  
+}
+
+.save-button:hover::before {
+  width: 100%;
 }
