@@ -246,23 +246,27 @@
         </wrapper>
       </section> -->
     </main>
-
     <footer class="footer">
-      <dialog>
-
+      <dialog class="dialog" id="dialog-id">
+        <form class="dialog-form" method="dialog">
+          <div class="container_for_dialog-text">
+            <svg class="floppy" width="40" height="40" viewBox="0 0 40 40">
+              <use href="./svg/floppy.svg#floppy"></use>
+            </svg>
+            <a class="button__text"> Вставьте<br>дискету,чтобы<br> продолжить</a>
+          </div>
+          <button class="submit__text" type="submit">ок</button>
+        </form>
       </dialog>
-      <svg class="floppy">
-        <use href="./svg/floppy.svg"></use>
-      </svg>
-      <button class="save-button">
-        <svg class="floppy">
-          <use href="./svg/floppy.svg"></use>
+      <button type="button"
+      onclick="window['dialog-id'].showModal();"
+      aria-controls="dialog-id" class="save-button">
+        <svg class="floppy" width="40" height="40" viewBox="0 0 40 40">
+          <use href="./svg/floppy.svg#floppy"></use>
         </svg>
         <a class="button__text">Сохранить на память</a>
       </button>
-      
     </footer>
-
     <script src="./scripts/like.js"></script>
   </body>
 </html>
