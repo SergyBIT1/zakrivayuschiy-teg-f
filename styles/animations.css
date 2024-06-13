@@ -12,3 +12,111 @@
 
 Кроме этого, не меняйте HTML переключателя тем. Его разметка также гарантирует работу своего скрипта.
 */
+
+
+
+.sparks {
+  opacity: 0;
+}
+    /* -------  hover  --------  */
+
+.like-icon:hover {
+  cursor: pointer;
+}
+
+.like-icon .core {
+  fill: var(--background-color);
+  transition: fill 0.3s ease-out 0.05s;
+}
+
+.like-icon .main-body {
+  fill: var(--background-color);
+  transition: fill 0.3s ease-in-out 0.03s;
+}
+
+.like-icon:hover .core {
+  fill: var(--border-color);
+}
+
+.like-icon:hover .main-body {
+  fill: var(--border-color);
+}
+   /* -------  active  --------  */
+
+.like-icon:active .core {
+  animation: is-liked 0.3s;
+}
+
+.like-icon:active .main-body {
+  animation: is-liked 0.3s;
+}
+
+.like-icon:active .contour {
+  animation: is-liked 0.3s ease 0.06s;
+}
+
+@keyframes is-liked {
+  from {
+    fill: var(--font-color);
+  }
+  to {
+    fill: var(--like-color);
+  }
+}
+ /* -------  big red heart  --------  */
+
+ .like-icon.is-liked .contour {
+  animation: big-heart 1.5s;
+  transform-origin: center;
+}
+
+.like-icon.is-liked .main-body {
+  animation: big-heart 1.5s;
+  transform-origin: center;
+}
+
+.like-icon.is-liked .core {
+  animation: big-heart 1.5s;
+  transform-origin: center;
+}
+
+@keyframes big-heart {
+  from {
+    scale: 1;
+  }
+  to {
+    scale: 1.15;
+    fill: var(--like-color);
+  }
+}
+  /* -------  sparks  --------  */
+
+.like-icon.is-liked .sparks {
+  animation: firework 1s;
+}
+
+@keyframes firework {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 100%;
+  }
+}
+
+  /* -------- двигающаяся трелочка в меню ------- */
+
+.theme-menu__button:disabled::before {
+  content: "▶";
+  display: inline-block;
+  animation: rocking 0.5s ease-in-out infinite alternate;
+}
+
+@keyframes rocking {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(4px);
+  }
+}

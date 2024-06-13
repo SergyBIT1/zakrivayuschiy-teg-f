@@ -5,7 +5,7 @@
   --background-color: #1A1A1A;
   --background-color-inverse: #00cc14;
   --text-color-inverse: #00cc14;
-  --background-image: repeating-linear-gradient(to right, #000 0 2px, rgb(211 211 211 / 0) 2px 4px),
+  --background-gradient-image: repeating-linear-gradient(to right, #000 0 2px, rgb(211 211 211 / 0) 2px 4px),
   repeating-linear-gradient(to bottom, #000 0 2px, rgb(211 211 211 / 0) 2px 4px),
   linear-gradient(#007f0c 0.01%, #004306);
   /* --background-image: url("../images/background-dark.png"); */
@@ -20,7 +20,7 @@
     --font-color: #00cc14;
     --background-color: #1A1A1A;
     --text-color-inverse: #00cc14;
-    --background-image: repeating-linear-gradient(to right, #000 0 2px, rgb(211 211 211 / 0) 2px 4px),
+    --background-gradient-image: repeating-linear-gradient(to right, #000 0 2px, rgb(211 211 211 / 0) 2px 4px),
   repeating-linear-gradient(to bottom, #000 0 2px, rgb(211 211 211 / 0) 2px 4px),
   linear-gradient(#007f0c 0.01%, #004306);
     /* --background-image: url("../images/background-dark.png"); */
@@ -35,7 +35,7 @@
   --border-color: #000000;
   --background-color: #FFFFFF;
   --text-color-inverse: #FFF;
-  --background-image: repeating-linear-gradient(to right, #d3d3d3 0 2px, rgb(211 211 211 / 0) 2px 4px),
+  --background-gradient-image: repeating-linear-gradient(to right, #d3d3d3 0 2px, rgb(211 211 211 / 0) 2px 4px),
   repeating-linear-gradient(to bottom, #d3d3d3 0 2px, rgb(211 211 211 / 0) 2px 4px),
   linear-gradient(#e7e7e7 0.01%, #1a1a1a);
   /* --background-image: url("../images/background-light.png"); */
@@ -48,7 +48,7 @@
     --border-color: #000000;
     --background-color: #FFFFFF;
     --text-color-inverse: #000000;
-    --background-image: repeating-linear-gradient(to right, #d3d3d3 0 2px, rgb(211 211 211 / 0) 2px 4px),
+    --background-gradient-image: repeating-linear-gradient(to right, #d3d3d3 0 2px, rgb(211 211 211 / 0) 2px 4px),
   repeating-linear-gradient(to bottom, #d3d3d3 0 2px, rgb(211 211 211 / 0) 2px 4px),
   linear-gradient(#e7e7e7 0.01%, #1a1a1a);
     /* --background-image: url("../images/background-light.png"); */

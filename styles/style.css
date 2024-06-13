@@ -21,19 +21,16 @@
 
 body {
   font-family: var(--font-regular);
-} 
-
-.main {
   display: flex;
   flex-direction: column;
   align-items: center;
-}
+} 
 
 .cover {
-   background-image: var(--background-image);
+   background-image:  var(--background-gradient-image);
+   background-attachment: fixed;
    background-size: cover;
    height: 960px;
-   width: 1140px;
 }
 
 .header {
@@ -45,9 +42,11 @@ body {
   color: var(--font-color);
   font-family: var(--font-pixel_style);
   background-color: var(--background-color);
+  margin-top: 102px;
+  margin-bottom: 102px;
+  width: 696px;
+  height: 364px;
 }
-
-
 
 .header__title {
   font-size: 23px;
@@ -61,7 +60,10 @@ body {
   display: flex;
   flex-direction: column;
   gap: 14px;
-  
+}
+
+.theme-menu {
+  margin-bottom: 25px;
 }
 
 .theme-menu__button {
@@ -70,71 +72,50 @@ body {
   line-height: 14px;
   text-transform: uppercase;
   background-color: transparent;
-  /* background-color: var(--background-color); */
   border: none;
   position: relative;
   outline: none;
 }
 
-   /* -------- двигающаяся трелочка в меню ------- */
-
 .theme-menu__button:disabled {
   opacity: 0.6;
 }
 
-.theme-menu__button:disabled::before {
-  content: "▶";
-  display: inline-block;
-  animation: rocking 0.5s ease-in-out infinite alternate;
-}
-
-@keyframes rocking {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(4px);
-  }
-}
-
-
-
-/* .watermark-text {
+.wrapper {
   position: relative;
+}
+
+.watermark-text {
+  position: absolute;
   mix-blend-mode: hard-light;
-  width: 98px;
-  top: 45px;
-  left: 573px;
+  width: 280px;
+  top: 25px;
+  right: 30px;
   opacity: 0.5;
   font-family: var(--font-pixel_style);
   font-size: 14px;
   font-weight: 400;
   line-height: 14px;
   text-align: right;
-} */
-
-.wrapper {
-  position: relative;
 }
 
-.watermark::after {
+@supports (-webkit-text-stroke: 1px var(--background-color)) {
+  .watermark-text {
+    -webkit-text-stroke: 1px var(--background-color);
+  }
+}
+
+/* .watermark::after {
   position: absolute;
   content: "<desigions>";
   top: 45px;
   right: 25px;
   opacity: 0.5;
   font-family: var(--font-pixel_style);
-}
-
-@supports (-webkit-text-stroke: 1px var(--text-color-inverse)) {
-  .watermark-text {
-    -webkit-text-stroke: 1px var(--text-color-inverse);
-  }
-}
-
+} */
 
 .theme-menu__item:last-child {
-  margin-bottom: 25px;
+  /* margin-bottom: 25px; */
 }
 
 .header__text {
@@ -143,6 +124,7 @@ body {
   font-weight: 400;
   line-height: 65px;
   margin-bottom: 20px;
+  margin-top: 136px;
 }
 
 .section_block {
@@ -186,109 +168,13 @@ body {
   justify-content: flex-end;
 }
 
-
-
 .card__icon-button {
   font-family: var(--font-pixel_style);
   height: 38px;
   background: var(--background-color);
   border: none;
   outline: none;
-  
 }
-
-.sparks {
-  opacity: 0;
-}
-    /* -------  hover  --------  */
-
-.like-icon:hover {
-  cursor: pointer;
-}
-
-.like-icon .core {
-  fill: var(--background-color);
-  transition: fill 0.3s ease-out 0.05s;
-}
-
-.like-icon .main-body {
-  fill: var(--background-color);
-  transition: fill 0.3s ease-in-out 0.03s;
-}
-
-.like-icon:hover .core {
-  fill: var(--border-color);
-}
-
-.like-icon:hover .main-body {
-  fill: var(--border-color);
-}
-   /* -------  active  --------  */
-
-.like-icon:active .core {
-  animation: is-liked 0.3s;
-}
-
-.like-icon:active .main-body {
-  animation: is-liked 0.3s;
-}
-
-.like-icon:active .contour {
-  animation: is-liked 0.3s ease 0.06s;
-}
-
-@keyframes is-liked {
-  from {
-    fill: var(--font-color);
-  }
-  to {
-    fill: var(--like-color);
-  }
-}
- /* -------  big red heart  --------  */
-
- .like-icon.is-liked .contour {
-  animation: big-heart 1.5s;
-  transform-origin: center;
-}
-
-.like-icon.is-liked .main-body {
-  animation: big-heart 1.5s;
-  transform-origin: center;
-}
-
-.like-icon.is-liked .core {
-  animation: big-heart 1.5s;
-  transform-origin: center;
-}
-
-@keyframes big-heart {
-  from {
-    scale: 1;
-  }
-  to {
-    scale: 1.15;
-    fill: var(--like-color);
-  }
-}
-  /* -------  sparks  --------  */
-
-.like-icon.is-liked .sparks {
-  animation: firework 1s;
-}
-
-@keyframes firework {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 100%;
-  }
-}
-
-
-
-
 /* ---- правая кнопка like button  --------  */
 
 .card__like-button:focus {
@@ -328,21 +214,17 @@ body {
   background: linear-gradient(to right, var(--border-color), var(--border-color));
   transition: all 1s;
   z-index: 0;
-  
 }
 
 .card__like-button:hover::before {
   width: 100%;
 }
-
 /* ---------  save button ----------  */
-
 
 .footer {
   display: flex;
   justify-content: center;
   align-items: center;
-  /* max-width: 700px; */
   font-family: var(--font-pixel_style);
   color: var(--font-color);
 }
@@ -365,7 +247,6 @@ body {
   display: flex;
   flex-direction: column;
   gap: 30px;
-  /* padding: 30px; */
 }
 
 .dialog::backdrop {
@@ -386,6 +267,7 @@ body {
   width: 335px;
   height: 51px;
   margin-bottom: 103px;
+  margin-top: 52px;
   font-size: 14px;
   position: relative;
   font-family: var(--font-pixel_style);
@@ -394,7 +276,6 @@ body {
   z-index: 1;
   outline: none;
 }
-
 
 /* --------- hover save button ----------  */
 
@@ -414,7 +295,6 @@ body {
   width: 100%;
 }
 
-
 /* ----------------- hover menu -----  это работает   ------------------- */
 
 .theme-menu__button:hover {
@@ -424,7 +304,6 @@ body {
 }
 
 /* ----------------- active menu   ------------------- */
-
 
 .theme-menu__button::after {
   position: absolute;
@@ -439,4 +318,31 @@ body {
 
 .theme-menu__button:focus::after {
   width: 100%;
+}
+
+@media (width <= 376px) {
+
+  .header__text {
+    font-size: clamp(3.0625rem, 2.7104rem + 1.5023vw, 4.0625rem);
+  }
+
+  .header__title {
+    font-size: clamp(0.875rem, 0.6769rem + 0.8451vw, 1.4375rem);
+  }
+  
+  .save-button {
+    display: flex;
+    flex-direction: column;
+    width: 306px;
+    height: 84px;
+  } 
+
+  .floppy {
+    align-self: center;
+  }
+
+  .save-button .button__text {
+    align-self: center;
+  }
+
 }
