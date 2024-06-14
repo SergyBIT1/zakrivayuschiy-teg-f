@@ -17,6 +17,7 @@
   min-inline-size: 320px;
   min-block-size: 100dvb;
   background-color: var(--background-color);
+  height: 3000px;
 }
 
 body {
@@ -24,13 +25,15 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  
 } 
 
 .cover {
    background-image:  var(--background-gradient-image);
    background-attachment: fixed;
    background-size: cover;
-   height: 960px;
+   
+   /* height: 960px; */
 }
 
 .header {
@@ -45,7 +48,7 @@ body {
   margin-top: 102px;
   margin-bottom: 102px;
   width: 696px;
-  height: 364px;
+  min-height: 364px;
 }
 
 .header__title {
@@ -53,17 +56,23 @@ body {
   font-weight: 400;
   line-height: 23px;
   text-transform: uppercase;
-  margin-bottom: 25px;
+  margin-bottom: 20px;
+}
+
+.theme-menu {
+  transform: translateX(20px);
 }
 
 .theme-menu__list {
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  justify-content: center;
+  gap: 12px;
 }
 
-.theme-menu {
-  margin-bottom: 25px;
+.theme-menu__button:disabled {
+  opacity: 0.6;
+  transform: translateX(-20px);
 }
 
 .theme-menu__button {
@@ -73,16 +82,6 @@ body {
   text-transform: uppercase;
   background-color: transparent;
   border: none;
-  position: relative;
-  outline: none;
-}
-
-.theme-menu__button:disabled {
-  opacity: 0.6;
-}
-
-.wrapper {
-  position: relative;
 }
 
 .watermark-text {
@@ -90,7 +89,7 @@ body {
   mix-blend-mode: hard-light;
   width: 280px;
   top: 25px;
-  right: 30px;
+  right: 25px;
   opacity: 0.5;
   font-family: var(--font-pixel_style);
   font-size: 14px;
@@ -104,6 +103,8 @@ body {
     -webkit-text-stroke: 1px var(--background-color);
   }
 }
+
+
 
 /* .watermark::after {
   position: absolute;
@@ -127,8 +128,17 @@ body {
   margin-top: 136px;
 }
 
+.wrapper {
+  position: relative;
+}
+
+.block_picture {
+  height: 696px;
+}
+
 .section_block {
   max-width: 696px;
+  min-height: 959px ;
   margin-bottom: 50px;
   border: 2px solid var(--border-color);
   color: var(--font-color);
@@ -141,18 +151,23 @@ body {
 
 .block_text_title {
   align-self: self-start;
-  margin-left: 10px;
+  font-size: 18px;
+  padding: 5px 10px 5px 10px;
 }
 
 .block_text {
   margin-left: 25px;
   margin-right: 25px;
   margin-top: 25px;
+  font-size: 18px;
 }
 
 .block_button {
-  margin-bottom: 25px;
-  margin-right: 25px;
+  display: flex;
+  justify-content: flex-end;
+  position: absolute; 
+  bottom: 25px;
+  right: 25px;
 }
 
 .picture {
@@ -161,11 +176,6 @@ body {
   object-fit: cover;
   width: 100%;
   height: 100%;
-}
-
-.block_button {
-  display: flex;
-  justify-content: flex-end;
 }
 
 .card__icon-button {
@@ -183,7 +193,7 @@ body {
 }
 
 .card__like-button {
-  position: relative;
+  position: relative; 
   font-family: var(--font-pixel_style);
   padding: 9px 17px;
   width: 130px;

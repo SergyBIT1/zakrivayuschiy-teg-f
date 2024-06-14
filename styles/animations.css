@@ -110,6 +110,7 @@
   content: "▶";
   display: inline-block;
   animation: rocking 0.5s ease-in-out infinite alternate;
+  /* margin-left: -25px; */
 }
 
 @keyframes rocking {
