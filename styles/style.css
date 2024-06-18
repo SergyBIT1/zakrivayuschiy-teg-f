@@ -18,6 +18,7 @@
   min-block-size: 100dvb;
   background-color: var(--background-color);
   height: 3000px;
+  background-attachment: fixed;
 }
 
 body {
@@ -25,30 +26,37 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  
 } 
 
 .cover {
    background-image:  var(--background-gradient-image);
    background-attachment: fixed;
    background-size: cover;
-   
-   /* height: 960px; */
 }
 
 .header {
   display: flex;
   flex-direction: column;
   align-items: center;
-  max-width: 700px;
   border: 2px solid var(--border-color);
   color: var(--font-color);
   font-family: var(--font-pixel_style);
   background-color: var(--background-color);
   margin-top: 102px;
   margin-bottom: 102px;
-  width: 696px;
+  width: 100vh;
+  max-width: 700px;
   min-height: 364px;
+}
+
+.section_block {
+  position: relative;
+  width: 100vh;
+  max-width: 696px;
+  margin-bottom: 50px;
+  border: 2px solid var(--border-color);
+  color: var(--font-color);
+  background-color: var(--background-color);
 }
 
 .header__title {
@@ -87,8 +95,8 @@ body {
 .watermark-text {
   position: absolute;
   mix-blend-mode: hard-light;
-  width: 280px;
-  top: 25px;
+  min-width: 280px;
+  top: 60px;
   right: 25px;
   opacity: 0.5;
   font-family: var(--font-pixel_style);
@@ -104,21 +112,6 @@ body {
   }
 }
 
-
-
-/* .watermark::after {
-  position: absolute;
-  content: "<desigions>";
-  top: 45px;
-  right: 25px;
-  opacity: 0.5;
-  font-family: var(--font-pixel_style);
-} */
-
-.theme-menu__item:last-child {
-  /* margin-bottom: 25px; */
-}
-
 .header__text {
   font-family: var(--font-pixel_style);
   font-size: 65px;
@@ -128,21 +121,8 @@ body {
   margin-top: 136px;
 }
 
-.wrapper {
-  position: relative;
-}
-
 .block_picture {
-  height: 696px;
-}
-
-.section_block {
-  max-width: 696px;
-  min-height: 959px ;
-  margin-bottom: 50px;
-  border: 2px solid var(--border-color);
-  color: var(--font-color);
-  background-color: var(--background-color);
+  height: 700px;
 }
 
 .section_block:last-child {
@@ -158,16 +138,19 @@ body {
 .block_text {
   margin-left: 25px;
   margin-right: 25px;
-  margin-top: 25px;
+  margin-top: 26px;
   font-size: 18px;
+}
+
+.block_text:last-of-type {
+  margin-bottom: 25px;
 }
 
 .block_button {
   display: flex;
   justify-content: flex-end;
-  position: absolute; 
-  bottom: 25px;
-  right: 25px;
+  margin-bottom: 25px;
+  margin-right: 25px;
 }
 
 .picture {
@@ -209,6 +192,8 @@ body {
 }
 
 .submit__text {
+  width: 293px;
+  height: 38px;
   color: var(--font-color);
   background: var(--background-color);
   border: 2px solid var(--border-color);
@@ -220,7 +205,7 @@ body {
   top: 0;
   left: 0;
   width: 0;
-  height: 34px;
+  height: 35px;
   background: linear-gradient(to right, var(--border-color), var(--border-color));
   transition: all 1s;
   z-index: 0;
@@ -240,10 +225,14 @@ body {
 }
 
 .floppy {
-  max-width: 39px;
-  height: 39px;
+  max-width: 21px;
+  height: 21px;
   color: var(--text-color-inverse);
   mix-blend-mode: difference;
+}
+
+.dialog[open] {
+  display: flex;
 }
 
 .dialog {
@@ -251,12 +240,23 @@ body {
   border: 2px solid var(--border-color);
   width: 357px;
   height: 193px;
+  align-items: center;
+  justify-content: center;
 }
 
 .dialog-form {
   display: flex;
   flex-direction: column;
   gap: 30px;
+}
+
+.dialog-form .floppy {
+  max-width: 39px;
+  height: 39px;
+}
+
+.button__text {
+  line-height: 21px;
 }
 
 .dialog::backdrop {
@@ -269,13 +269,17 @@ body {
   gap: 20px;
 }
 
+.container_for_dialog-text .floppy {
+  align-self: center;
+}
+
 .dialog.opened {
-  display: flex;
+  /* display: flex; */
 }
 
 .save-button {
   width: 335px;
-  height: 51px;
+  height: 55px;
   margin-bottom: 103px;
   margin-top: 52px;
   font-size: 14px;
@@ -295,7 +299,7 @@ body {
   top: 0;
   left: 0;
   width: 0;
-  height: 48px;
+  height: 52px;
   background: linear-gradient(to right, var(--border-color), var(--border-color));
   transition: all 1s;
   z-index: 0;
@@ -347,12 +351,57 @@ body {
     height: 84px;
   } 
 
+  .save-button {
+    margin-bottom: 100px;
+    gap: 8px;
+  }
+
   .floppy {
     align-self: center;
+    max-width: 28px;
+    height: 28px;
+    margin-top: 15px;
   }
 
   .save-button .button__text {
     align-self: center;
   }
+
+  .header {
+    max-width: 371px;
+    min-height: 364px;
+  }
+  
+  .section_block {
+    width: 100vh;
+    max-width: 375px;
+  }
+
+  .block_picture {
+    min-height: 375px;
+  }
+
+  .save-button::before {
+    height: 80px;
+  }
+
+
+
+
+
+  .submit__text {
+    width: 257px;
+  }
+
+  .button__text {
+    font-size: 14px;
+  }
+
+
+
+  /* .picture {
+    filter: opacity(0.5);
+
+  } */
 
 }
