@@ -1,24 +1,6 @@
-/* Опишите в этом файле все keyframes для проекта и стили анимаций иконки Like.
-
-Будьте внимательны! Для корректной работы скриптов на этом сайте нужно, чтобы в HTML некоторые классы были названы особым образом:
-✦ theme-dark — класс тёмной темы
-✦ theme-light — класс светлой темы
-✦ like-icon — для svg-иконки анимированного сердца
-✦ card__like-button — для кнопки Like рядом с иконкой
-✦ card__icon-button — для кнопки, оборачивающей иконку
-✦ card__icon-button — для кнопки, оборачивающей иконку
-✦ is-liked — для обозначения состояния лайкнутой иконки в виде сердца
-✦ button__text — для обозначения текстового элемента внутри кнопки
-
-Кроме этого, не меняйте HTML переключателя тем. Его разметка также гарантирует работу своего скрипта.
-*/
-
-
-
 .sparks {
   opacity: 0;
 }
-    /* -------  hover  --------  */
 
 .like-icon:hover {
   cursor: pointer;
@@ -41,7 +23,27 @@
 .like-icon:hover .main-body {
   fill: var(--border-color);
 }
-   /* -------  active  --------  */
+
+.like-icon.is-liked .contour {
+  fill: var(--like-color);
+}
+
+.like-icon.is-liked .core {
+  fill: var(--like-color);
+}
+
+.like-icon.is-liked .main-body {
+  fill: var(--like-color);
+}
+
+.card__icon-button:focus {
+  outline: none;
+}
+
+.card__icon-button:focus-visible {
+  transition: border 0.3s ease;
+  border: 2px solid var(--border-color);
+}
 
 .like-icon:active .core {
   animation: is-liked 0.3s;
@@ -63,6 +65,7 @@
     fill: var(--like-color);
   }
 }
+
  /* -------  big red heart  --------  */
 
  .like-icon.is-liked .contour {
@@ -89,7 +92,6 @@
     fill: var(--like-color);
   }
 }
-  /* -------  sparks  --------  */
 
 .like-icon.is-liked .sparks {
   animation: firework 1s;
@@ -103,8 +105,6 @@
     opacity: 100%;
   }
 }
-
-  /* -------- двигающаяся трелочка в меню ------- */
 
 .theme-menu__button:disabled::before {
   content: "▶";
