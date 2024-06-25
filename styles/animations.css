@@ -40,30 +40,23 @@
   outline: none;
 }
 
+.card__icon-button:active {
+  outline: none;
+}
+
 .card__icon-button:focus-visible {
   transition: border 0.3s ease;
   border: 2px solid var(--border-color);
 }
 
 .like-icon:active .core {
-  animation: is-liked 0.3s;
+  transition: fill 0.3s ease;
+  fill: var(--like-color);
 }
 
 .like-icon:active .main-body {
-  animation: is-liked 0.3s;
-}
-
-.like-icon:active .contour {
-  animation: is-liked 0.3s ease 0.06s;
-}
-
-@keyframes is-liked {
-  from {
-    fill: var(--font-color);
-  }
-  to {
-    fill: var(--like-color);
-  }
+  transition: fill 0.3s ease;
+  fill: var(--like-color);
 }
 
  /* -------  big red heart  --------  */
@@ -108,7 +101,9 @@
 
 .theme-menu__button:disabled::before {
   content: "▶";
+  position: absolute;
   display: inline-block;
+  left: -15px;
   animation: rocking 0.5s ease-in-out infinite alternate;
 }
 
