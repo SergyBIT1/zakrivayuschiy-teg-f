@@ -47,6 +47,7 @@
 }
 
 .watermark {
+  position: relative;
   margin: 0;
 }
 
@@ -54,14 +55,13 @@
   position: absolute;
   mix-blend-mode: hard-light;
   max-width: 280px;
-  top: 60px;
+  top: 25px;
   right: 25px;
   opacity: 0.5;
   font-family: var(--font-pixel_style);
   font-size: 14px;
   font-weight: 400;
   line-height: 14px;
-  text-align: right;
 }
 
 @supports (-webkit-text-stroke: 1px var(--background-color)) {
@@ -130,6 +130,11 @@
 }
 
 .card__like-button:focus {
+  box-shadow: 2px 2px;
+  outline: none;
+}
+
+.save-button:focus {
   box-shadow: 2px 2px;
   outline: none;
 }
@@ -360,12 +365,6 @@
 
 .save-button:hover::before {
   width: 100%;
-}
-
-.watermark-text {
-  position: absolute;
-  top: 58px;
-  right: 22px;
 }
 
 @media (width <= 376px) {

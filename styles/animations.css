@@ -2,6 +2,8 @@
   opacity: 0;
 }
 
+/*      ------    :hover     ------    */
+
 .like-icon:hover {
   cursor: pointer;
 }
@@ -13,16 +15,37 @@
 
 .like-icon .main-body {
   fill: var(--background-color);
-  transition: fill 0.3s ease-in-out 0.03s;
+  transition: fill 0.3s ease-in-out 0.05s;
 }
 
 .like-icon:hover .core {
   fill: var(--border-color);
+  transition: fill 0.3s ease-in-out 0.05s;
 }
 
 .like-icon:hover .main-body {
   fill: var(--border-color);
+  transition: fill 0.3s ease-in-out 0.05s;
 }
+
+/*      ------    :active     ------    */
+
+.card__icon-button:active {
+  outline: none;
+}
+
+.like-icon:active .core {
+  transition: fill 0.3s linear;
+  fill: var(--like-color);
+}
+
+.like-icon:active .main-body {
+  transition: fill 0.3s linear;
+  fill: var(--like-color);
+}
+
+/*      ------    Клик по иконке     ------    */
+
 
 .like-icon.is-liked .contour {
   fill: var(--like-color);
@@ -36,43 +59,21 @@
   fill: var(--like-color);
 }
 
+/*      ------    :focus     ------    */
+
+.card__icon-button:focus-visible {
+  transition: border 0.3s linear;
+  border: 2px solid var(--border-color);
+}
+
 .card__icon-button:focus {
   outline: none;
 }
 
-.card__icon-button:active {
-  outline: none;
-}
-
-.card__icon-button:focus-visible {
-  transition: border 0.3s ease;
-  border: 2px solid var(--border-color);
-}
-
-.like-icon:active .core {
-  transition: fill 0.3s ease;
-  fill: var(--like-color);
-}
-
-.like-icon:active .main-body {
-  transition: fill 0.3s ease;
-  fill: var(--like-color);
-}
-
  /* -------  big red heart  --------  */
 
- .like-icon.is-liked .contour {
-  animation: big-heart 1.5s;
-  transform-origin: center;
-}
-
-.like-icon.is-liked .main-body {
-  animation: big-heart 1.5s;
-  transform-origin: center;
-}
-
-.like-icon.is-liked .core {
-  animation: big-heart 1.5s;
+.like-icon.is-liked {
+  animation: big-heart 0.3s 0.1s ease-in 1 alternate;
   transform-origin: center;
 }
 
@@ -86,8 +87,10 @@
   }
 }
 
+ /* -------  sparks  --------  */
+
 .like-icon.is-liked .sparks {
-  animation: firework 1s;
+  animation: firework 0.3s 0.3s ease-in 1 alternate;;
 }
 
 @keyframes firework {
